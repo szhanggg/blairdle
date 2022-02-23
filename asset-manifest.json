@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/blairdle/static/css/main.f0d1738e.css",
-    "main.js": "/blairdle/static/js/main.fb1927ad.js",
+    "main.css": "/blairdle/static/css/main.c7cfa443.css",
+    "main.js": "/blairdle/static/js/main.8a01ca1c.js",
     "static/js/787.2d8206cb.chunk.js": "/blairdle/static/js/787.2d8206cb.chunk.js",
     "index.html": "/blairdle/index.html",
-    "main.f0d1738e.css.map": "/blairdle/static/css/main.f0d1738e.css.map",
-    "main.fb1927ad.js.map": "/blairdle/static/js/main.fb1927ad.js.map",
+    "main.c7cfa443.css.map": "/blairdle/static/css/main.c7cfa443.css.map",
+    "main.8a01ca1c.js.map": "/blairdle/static/js/main.8a01ca1c.js.map",
     "787.2d8206cb.chunk.js.map": "/blairdle/static/js/787.2d8206cb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f0d1738e.css",
-    "static/js/main.fb1927ad.js"
+    "static/css/main.c7cfa443.css",
+    "static/js/main.8a01ca1c.js"
   ]
 }
