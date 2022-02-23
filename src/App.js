@@ -34,6 +34,10 @@ const blairWords = [
   "moyai",
   "tiffy",
   "kripa",
+  "edith",
+  "yuwun",
+  "jason",
+  "penis",
 ]
 
 var db = false;
