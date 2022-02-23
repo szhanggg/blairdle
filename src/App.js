@@ -3,12 +3,37 @@ import './App.css';
 import NavBar from './components/NavBar';
 import Grid from './components/Grid';
 import InputMenu from './components/InputMenu';
+import OverMessage from './components/OverMessage';
 
 import { useState } from 'react';
 
 const wordListUrl = "https://raw.githubusercontent.com/tabatkins/wordle-list/main/words"
 
-const blairWords = ["blair", "lunch", "shron", "drugs", "urbad", "lbozo", "ratio", "lodal", "smoke"]
+const blairWords = [
+  "blair",
+  "lunch",
+  "shron",
+  "drugs",
+  "urbad",
+  "lbozo",
+  "ratio",
+  "lodal",
+  "smoke",
+  "ligma",
+  "urmom",
+  "skill",
+  "ricky",
+  "uremo",
+  "hadar",
+  "blake",
+  "moose",
+  "dapme",
+  "upbro",
+  "ongod",
+  "twash",
+  "moyai",
+  "tiffy"
+]
 
 var db = false;
 
@@ -17,9 +42,6 @@ function sleep(ms) {
 }
 
 function App() {
-
-  // const answerWord = blairWords[Math.floor(Math.random()*blairWords.length)]
-  const answerWord = "blair";
   
   const [lettersLL, setLettersLL] = useState([
     ["", "", "", "", ""],
@@ -33,6 +55,8 @@ function App() {
   const [rowNum, setRowNum] = useState(0);
 
   const [curWord, setCurWord] = useState("");
+
+  const [answerWord] = useState(blairWords[Math.floor(Math.random()*blairWords.length)]);
 
   const updateWord = (e) => {
 
@@ -111,8 +135,6 @@ function App() {
 
     var soFrequency = {}
 
-    console.log(rightFrequency);
-
     for(var i = 0; i<5; i++) {
       if(curWord.charAt(i) === answerWord.charAt(i)) {
         colorGrid[i] = 2;
@@ -152,7 +174,14 @@ function App() {
     }
 
     setRowNum(rowNum + 1);
+
+    if(rowNum === 5 || curWord === answerWord) {
+      document.getElementById("overCon").classList.add('slideTopClass');
+      return;
+    }
+
     setCurWord("");
+
     db = false;
     inputField.disabled = false;
 
@@ -167,6 +196,11 @@ function App() {
       </div>
       <div className="inputContainer">
         <InputMenu updateWord={updateWord} submitWord={submitWord}/>
+      </div>
+      <div className="overCenter">
+      <div className="overContainer" id="overCon">
+        <OverMessage curWord={curWord} answerWord={answerWord}/>
+      </div>
       </div>
     </div>
   );

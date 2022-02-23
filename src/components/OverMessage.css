@@ -1,0 +1,13 @@
+.overContent {
+    /* border: red solid 1px; */
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.overContent h1 {
+    font-size: 2.5em;
+}
