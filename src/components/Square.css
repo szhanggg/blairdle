@@ -1,0 +1,72 @@
+.square {
+    height: 50px;
+    width: 50px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 5px;
+    border: 2px solid black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+
+.flashRedClass {
+    animation: 0.25s ease-in 0s 1 flashRed forwards;
+}
+
+.flashGreyClass {
+    animation: 0.25s ease-in 0s 1 flashGrey forwards;
+}
+
+.flashYellowClass {
+    animation: 0.25s ease-in 0s 1 flashYellow forwards;
+}
+
+.textRedClass {
+    animation: 0.5s ease-in 0s 2 textRed forwards alternate;
+}
+
+@keyframes flashRed {
+    0% {
+        background-color: rgb(0, 0, 0);
+    }
+
+    100% {
+        background-color: rgb(217,43,54);
+    }
+
+}
+
+@keyframes flashGrey {
+    0% {
+        background-color: rgb(0, 0, 0);
+    }
+
+    100% {
+        background-color: rgb(120,124,126);
+    }
+
+}
+
+@keyframes flashYellow {
+    0% {
+        background-color: rgb(0, 0, 0);
+    }
+
+    100% {
+        background-color: rgb(201,180,88);
+    }
+
+}
+
+@keyframes textRed {
+    0% {
+        color: rgb(255, 255, 255);
+    }
+
+    100% {
+        color: rgb(217, 43, 54);
+    }
+}
