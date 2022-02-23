@@ -206,7 +206,7 @@ function App() {
       </div>
       <div className="overCenter">
       <div className="overContainer" id="overCon">
-        <OverMessage curWord={curWord} answerWord={answerWord}/>
+        <OverMessage curWord={curWord} answerWord={answerWord} rowNum={rowNum}/>
       </div>
       </div>
     </div>
