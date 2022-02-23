@@ -5,42 +5,10 @@ import Grid from './components/Grid';
 import InputMenu from './components/InputMenu';
 import OverMessage from './components/OverMessage';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const wordListUrl = "https://raw.githubusercontent.com/tabatkins/wordle-list/main/words"
-
-const blairWords = [
-  "blair",
-  "lunch",
-  "shron",
-  "drugs",
-  "urbad",
-  "lbozo",
-  "ratio",
-  "lodal",
-  "smoke",
-  "ligma",
-  "urmom",
-  "skill",
-  "ricky",
-  "uremo",
-  "hadar",
-  "blake",
-  "moose",
-  "dapme",
-  "upbro",
-  "ongod",
-  "twash",
-  "moyai",
-  "tiffy",
-  "kripa",
-  "edith",
-  "yuwun",
-  "jason",
-  "penis",
-  "soapy",
-  "aryan",
-]
+const blairListUrl = "https://raw.githubusercontent.com/grififth/blairdle/main/wordlist.txt"
 
 var db = false;
 
@@ -59,11 +27,33 @@ function App() {
     ["", "", "", "", ""],
   ])
 
+  const [wordList, setWordList] = useState([])
+
+  const [blairWords, setBlairWords] = useState([])
+
+  useEffect(() => {
+
+    const fetchList = async (url) => {
+      const response = await fetch(url);
+      const tempWordList = await response.text();
+      return tempWordList.split('\n');
+    }
+    const newWordList = fetchList(wordListUrl)
+
+    const newBlairWords = fetchList(blairListUrl)
+
+
+    newWordList.then((e) => {setWordList(e)});
+
+    newBlairWords.then((e) => {setBlairWords(e)});
+
+  }, [])
+
   const [rowNum, setRowNum] = useState(0);
 
   const [curWord, setCurWord] = useState("");
 
-  const [answerWord] = useState(blairWords[Math.floor(Math.random()*blairWords.length)]);
+  const [answerWord, setAnswerWord] = useState(null);
 
   const updateWord = (e) => {
 
@@ -89,6 +79,11 @@ function App() {
 
   const submitWord = async (e) => {
 
+    
+    if(answerWord === null) {
+      setAnswerWord(blairWords[Math.floor(Math.random()*blairWords.length)]);
+    }
+
     var inputField = document.getElementById('inputField');
 
     if(db) return;
@@ -96,12 +91,6 @@ function App() {
     db = true;
 
     inputField.disabled = true;
-
-    let response = await fetch(wordListUrl);
-    
-    var wordList = await response.text();
-    
-    wordList = wordList.split('\n');
 
     var letterLines = document.getElementsByClassName("grid")[0].children;
 
