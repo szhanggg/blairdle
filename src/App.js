@@ -183,6 +183,7 @@ function App() {
     setRowNum(rowNum + 1);
 
     if(rowNum === 5 || curWord === answerWord) {
+      document.getElementById("overCon").style.zIndex = 3;
       document.getElementById("overCon").classList.add('slideTopClass');
       return;
     }
